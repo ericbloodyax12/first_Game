@@ -1,25 +1,51 @@
-let money;
-let first_Name;
-let id;
-let strength;
-
-let myHealth;
-let orkHealth=20;
-strength=prompt('Add strength');
- function onHit() {
-     orkHealth=orkHealth-strength
-     if (orkHealth<=0){
-         alert("Ork is dead");
-        let orkHealthImageElement=document.getElementById("orkHealthImage");
-        orkHealthImageElement.src='https://i.pinimg.com/originals/60/fe/73/60fe73631416af13ca6b02568e113e04.jpg'
-         return}
-
-     showHealt(orkHealth);
- }
-
-function showHealt(orkHealth) {
-    alert(`orkHealth Life is ${orkHealth}`)
+function getRandomHealht(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-/* свою силу вводим и имя , свою жизнь рандом от 50 до 100, своя сила <20 >0, а орку хиллку 100 а силу рандомную от 0 до 20
-должна потом появиться табличка с данными, пока не умерли, должно ввыводится имя мертвеца
- */
+let myUser= {
+  name: "",
+  strength:undefined,
+  health:undefined,
+};
+
+myUser.health= getRandomHealht(50,100);
+myUser.name=prompt("Ваше имя")
+
+function createMyStrength() {
+
+  let localstrength=+prompt("add strength")
+  if (isNaN(localstrength) || localstrength<=0 || localstrength>20){
+    alert("Введите от 0 до 20")
+    createMyStrength()
+  }
+  else {
+    myUser.strength=localstrength;
+
+  };
+
+}
+
+let orkUser= createObject("er",10,10)
+
+function createObject(name,strength,health) {
+  console.log(name,strength,health)
+  return  {
+    name: "",
+    strength:undefined,
+    health:undefined,
+  }
+
+
+}
+
+createMyStrength();
+
+
+console.log(myUser);
+
+
+
+
+
+
+
+
