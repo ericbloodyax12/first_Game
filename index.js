@@ -1,51 +1,35 @@
 function getRandomHealht(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-let myUser= {                                    //создаем объект с именем силой и здоровьем перса
-  name: "",
-  strength:undefined,
-  health:undefined,
-};
 
-myUser.health= getRandomHealht(50,100);         //задаем герою рандом знач здор
-myUser.name=prompt("Ваше имя")
-
-function createMyStrength() {
-
-  let localstrength=+prompt("add strength")
-  if (isNaN(localstrength) || localstrength<=0 || localstrength>20){ //условие на силу (условие задачи)
-    alert("Введите от 0 до 20")
-    createMyStrength()
+function createObject(name = '', strength = undefined, health = undefined) {
+  return {
+    name: name,
+    strength: strength,
+    health: health
   }
-  else {
-    myUser.strength=localstrength;
-
-  };
-
 }
 
-let orkUser= createObject("er",10,10)
 
-function createObject(name,strength,health) {
-  console.log(name,strength,health)
-  return  {
-    name: "",
-    strength:undefined,
-    health:undefined,
+function getData() { // то что мы вводим это min , a max пока пусть будет 40
+  let data = +prompt("Add Strenght (from 0 to 20) ")
+  if (data > 0 && data <= 20 && !isNaN(data)) {
+    let randomData= getRandomHealht(data,40)
+   return randomData
+  } else {
+    alert('add right data pls')
+   getData();
   }
-
-
 }
 
-createMyStrength();
 
+function setDataToObjectAndReturnIt(name, health) {
+  let localStrenght = getData();
+  return createObject(name,localStrenght, health)
+}
 
-console.log(myUser);
-
-
-
-
-
-
-
-
+let ork = setDataToObjectAndReturnIt('ork', 50) //сообщение для кого выводится promt
+let erik = setDataToObjectAndReturnIt('erik', 40)
+console.log(ork);
+console.log(erik);
+// creat function при нажатии кнопки героя  отнимае у здоровья героя силу противника до тех пока не умрет (game over через) и это через функцию while
