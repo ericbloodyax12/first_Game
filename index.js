@@ -8,7 +8,7 @@ function createObject(name = '', strength = undefined, health = undefined) {
     strength: strength,
     health: health
   }
-}
+} //фунцкия создает объект с тремя ключами: имя,сила, здоровье и с соответственными значениями
 
 
 function getData() { // то что мы вводим это min , a max пока пусть будет 40
