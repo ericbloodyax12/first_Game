@@ -29,7 +29,11 @@ function setDataToObjectAndReturnIt(name, health) {
 }
 
 let ork = setDataToObjectAndReturnIt('ork', 50) //сообщение для кого выводится promt
-let erik = setDataToObjectAndReturnIt('erik', 40)
-console.log(ork);
-console.log(erik);
+let erik = Object.assign({},ork,{name:"erik"},{strength:(ork.strength+1)});
+
+
+function tesFunction() {
+  console.log(erik,ork)
+};
 // creat function при нажатии кнопки героя  отнимае у здоровья героя силу противника до тех пока не умрет (game over через) и это через функцию while
+//
