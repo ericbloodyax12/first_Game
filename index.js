@@ -1,3 +1,5 @@
+import {lenguagiesObject} from "./consts";
+console.log("lenguagiesObject",lenguagiesObject)
 function getRandomData(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
