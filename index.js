@@ -1,5 +1,6 @@
 import {lenguagiesObject} from "./consts.js";
 import newStartGame from "./modules/startGame.js";
+import cutStringAndGetNumber from "./helpers/getNumberFromString.js";
 
 let buttonElement = document.getElementById("startGame")
 
@@ -35,12 +36,15 @@ function setDataToObjectAndReturnIt(name, health) {
     return createObject(name, localStrenght, health)
 }
 
-let addheroName = prompt("What`s your name?", "erik")
-let ork = setDataToObjectAndReturnIt('ork', 50) //сообщение для кого выводится promt
-let erik = Object.assign({}, ork, {name: addheroName}, {strength: (ork.strength + 1)});
+
 
 function startGame() {
+
+    let addheroName = prompt("What`s your name?", "erik")
+    let ork = setDataToObjectAndReturnIt('ork', 50) //сообщение для кого выводится promt
+    let erik = Object.assign({}, ork, {name: addheroName}, {strength: (ork.strength + 1)});
     newStartGame(getRandomData,erik,ork)
+
 };
 
 buttonElement.addEventListener("click", startGame);
