@@ -2,7 +2,6 @@ function cutStringAndGetNumber(str) {
     let all = str.length
     let myStr = '';
     let array =[];
-console.log("its str stringoy", str);
     let isNumberStart = false;
 
     for (let i=0;i<all;i++) {
