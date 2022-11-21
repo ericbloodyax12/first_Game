@@ -1,1 +1,14 @@
 #orkImage {width: 50px }
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(238, 233, 233, 0.6);
+}
+.start-game-wrapper {
+    margin: auto;
+    width: 50%;
+    border: 3px dotted green;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Rubik Distressed', cursive;
+}
