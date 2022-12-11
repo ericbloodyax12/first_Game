@@ -62,4 +62,7 @@ body {
     from{border-right-color: rgba(255,255,255,.75);}
     to{border-right-color: transparent;}
 }
-
+#startGameTitle {
+    background-color: #4CAF50;
+    min-width: min-content;
+}

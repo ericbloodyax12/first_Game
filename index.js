@@ -2,6 +2,19 @@ import newStartGame from "./modules/startGame.js";
 import getEquipmentArr from "./modules/equipments/equipment.js";
 import {setHeroName,getHeroName} from "./utils/getHeroName.js";
 
+export function  gameInitialize() {
+    let heroName = getHeroName();
+    if(heroName) {
+       const buttonElement = document.getElementById('startGame');
+       const h1element = document.getElementById('startGameTitle');
+        h1element.innerHTML = `Привет, &nbsp;${heroName}`;
+        buttonElement.remove();
+    }
+    else {
+        console.log('Имя нет');
+    }
+};
+gameInitialize();
 
 //region getElements
 let buttonsInfo = [
@@ -13,8 +26,10 @@ function getElementsAndAddListeners(buttons) {
     let elements = [];
     for (let i = 0; i<buttons.length; i++){
       let currentElement = window.document.getElementById(buttons[i].id);
-        currentElement.addEventListener("click",buttons[i].listener);
-        elements.push(currentElement);
+      if(currentElement) {
+          currentElement.addEventListener("click",buttons[i].listener);
+          elements.push(currentElement);
+      }
     }
     return elements;
 }
@@ -90,11 +105,5 @@ async function startGame() {
 };
 
 
-
-
-// todo вынести логику добавления кнопки (при отмене игры) в отдельнуюд функцию и вызывать когда надбо починить баг
-// todo "сумку" доделать новую страницу
-
-
-// creat function при нажатии кнопки героя  отнимае у здоровья героя силу противника до тех пока не умрет (game over через) и это через функцию while
-// сделать так чтобы происходил start new game
+//todo 1 сделать кнопку удаления значений(данных) из localStorage
+//todo 2 добавить(вернуть видимость) скрытых кнопок
