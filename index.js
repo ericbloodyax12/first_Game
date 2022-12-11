@@ -1,10 +1,23 @@
 import newStartGame from "./modules/startGame.js";
 import getEquipmentArr from "./modules/equipments/equipment.js";
+import {setDataToLocalStorage} from "./helpers/localStorageHelper.js";
 
-
-let buttonElement = window.document.getElementById("startGame");
-let buttonElementII = window.document.getElementById("equipment");
-let buttonElementIII = window.document.getElementById("ask");
+//region getElements
+let buttons = [
+    {buttonName:"startButton",id:"startGame"},
+    {buttonName:" equipmentButton",id:"equipment"},
+    {buttonName:"askButtonI",id:"ask"}
+];
+function getElements(buttons) {
+    let elements = [];
+    for (let i = 0; i<buttons.length; i++){
+      let currentElement = window.document.getElementById(buttons[i].id);
+        elements.push(currentElement);
+    }
+    return elements;
+}
+let [startButton, equipmentButton , askButton ] = getElements(buttons);
+//endregion
 
 
 function getRandomData(min, max) {
