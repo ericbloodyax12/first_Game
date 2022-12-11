@@ -1,22 +1,24 @@
 import newStartGame from "./modules/startGame.js";
 import getEquipmentArr from "./modules/equipments/equipment.js";
-import {setDataToLocalStorage} from "./helpers/localStorageHelper.js";
+import {setHeroName,getHeroName} from "./utils/getHeroName.js";
+
 
 //region getElements
-let buttons = [
-    {buttonName:"startButton",id:"startGame"},
-    {buttonName:" equipmentButton",id:"equipment"},
-    {buttonName:"askButtonI",id:"ask"}
+let buttonsInfo = [
+    {buttonName:"startButton",id:"startGame", listener:setHeroName},
+    {buttonName:" equipmentButton",id:"equipment", listener:ask},
+    {buttonName:"askButton",id:"ask", listener:getEquipmentArr}
 ];
-function getElements(buttons) {
+function getElementsAndAddListeners(buttons) {
     let elements = [];
     for (let i = 0; i<buttons.length; i++){
       let currentElement = window.document.getElementById(buttons[i].id);
+        currentElement.addEventListener("click",buttons[i].listener);
         elements.push(currentElement);
     }
     return elements;
 }
-let [startButton, equipmentButton , askButton ] = getElements(buttons);
+let [startButton, equipmentButton, askButton ] = getElementsAndAddListeners(buttonsInfo);
 //endregion
 
 
@@ -62,7 +64,7 @@ function setDataToObjectAndReturnIt(name, health) {
     return newPerson;
 }
 async function startGame() {
-    await buttonElement.remove();
+    await startButton.remove();
 
 
         let addheroName = prompt("What`s your name?");
@@ -87,9 +89,6 @@ async function startGame() {
 
 };
 
-buttonElementIII.addEventListener("click", ask);
-buttonElement.addEventListener("click", startGame);
-buttonElementII.addEventListener("click", getEquipmentArr);
 
 
 
