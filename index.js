@@ -2,19 +2,22 @@ import newStartGame from "./modules/startGame.js";
 import getEquipmentArr from "./modules/equipments/equipment.js";
 import {setHeroName,getHeroName} from "./utils/getHeroName.js";
 
-export function  gameInitialize() {
+function initialize() {
     let heroName = getHeroName();
-    if(heroName) {
-       const buttonElement = document.getElementById('startGame');
+    if (heroName) {
+        removeStartGamesElements();
+    }
+}
+initialize();
+export function  removeStartGamesElements() {
+        const removingElements = document.getElementsByClassName("remove-element")
        const h1element = document.getElementById('startGameTitle');
+        const heroName = getHeroName();
         h1element.innerHTML = `Привет, &nbsp;${heroName}`;
-        buttonElement.remove();
-    }
-    else {
-        console.log('Имя нет');
-    }
+        Array.from(removingElements).forEach((item, index, array)=>{
+            item.remove();
+        })
 };
-gameInitialize();
 
 //region getElements
 let buttonsInfo = [

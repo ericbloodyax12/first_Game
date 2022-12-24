@@ -5,24 +5,22 @@
     <link rel="stylesheet" href="commonStyles.css" >
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>New Game</title>
 </head>
 <body>
 
 <div id="main" class="start-game-wrapper">
-
-
     <image id="orkImage" src="https://www.mobygames.com/images/promo/original/1513868208-4210433796.gif"/>
     <h1 id="startGameTitle" class="start-header">Start a new Game</h1>
 
-    <button id="startGame" class="activate-button">start</button>
+    <button id="startGame" class="remove-element activate-button">start</button>
     <div class="hiddenDiv">
         <button  id="equipment" class="activate-button"><a href="modules/equipments/equipment.html">equipment q</a> </button>
         <button id="ask" class="activate-button">ask</button>
     </div>
-
 </div>
-<p class="line-1 anim-typewriter">Press button to start adventure...</p>
+<p id="peshka" class="remove-element line-1 anim-typewriter">Press button to start adventure...</p>
 <script defer type="module" src="./index.js"></script>
 </body>
 </html>
