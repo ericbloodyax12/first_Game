@@ -1,9 +1,10 @@
-#orkImage {width: 50px }
+
 html {
     min-height: 100%;
     overflow: hidden;
 }
 body {
+    font-size: 10px;
     height: calc(100vh - 8em);
     padding: 4em;
     color: rgba(255,255,255,.75);
@@ -11,9 +12,7 @@ body {
     background-color: rgb(25,25,25);
 }
 .start-game-wrapper {
-    margin: auto;
-    width: 50%;
-
+    width: 100%;
     padding: 10px;
     text-align: center;
     color: rgba(255,255,255,.75);
@@ -21,6 +20,8 @@ body {
 }
 .start-game-wrapper .start-header {
     font-family: 'Rubik Distressed', cursive;
+    font-size: 2rem;
+    text-decoration: overline rgba(119, 133, 236, 0.98) wavy 1px;
 }
 .activate-button {
     background-color: #4CAF50;
@@ -62,7 +63,4 @@ body {
     from{border-right-color: rgba(255,255,255,.75);}
     to{border-right-color: transparent;}
 }
-#startGameTitle {
-    background-color: #4CAF50;
-    min-width: min-content;
-}
+#orkImage {width: 7rem }

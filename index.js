@@ -74,7 +74,6 @@ function ask() {
 
 function setDataToObjectAndReturnIt(name, health) {
     let localStrenght = getData();
-    console.log("its done");
     let newPerson = new Personages(name, localStrenght, health);
     return newPerson;
 }
